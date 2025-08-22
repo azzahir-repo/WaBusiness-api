@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <img src="https://iili.io/2Zpjtlp.jpg" />
+  <img src="https://n.uguu.se/DwXsvDfi.jpg" />
 
   <a href="https://www.npmjs.com/package/baileys-mod">
     <img src="https://img.shields.io/npm/v/baileys-mod?color=red&label=Version&logo=npm" alt="npm version" />
@@ -42,12 +42,12 @@ The original repository was initially removed by its creator and subsequently ta
 Install in package.json:
 ```json
 "dependencies": {
-    "baileys": "github:nstar-y/bail"
+    "baileys": "github:azzhir-repo/WaBusiness-api"
 }
 ```
 or install in terminal:
 ```
-npm install baileys@github:nstar-y/bail
+npm install baileys@github:azzhir-repo/WaBusiness-api
 ```
 
 Then import the default function in your code:
