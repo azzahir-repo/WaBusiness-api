@@ -12,7 +12,7 @@
     <img src="https://img.shields.io/npm/dt/baileys-mod?color=red&label=Downloads&logo=npm" alt="npm downloads" />
   </a>
 
-  <a href="https://whatsapp.com/channel/0029VaEe0l9Au3aVRw2x2r0V">
+  <a href="https://whatsapp.com/channel/0029Vb6jeufG3R3dOjOvFN1c">
     <img src="https://img.shields.io/badge/WhatsApp-Channel-25D366?logo=whatsapp&logoColor=white" alt="WhatsApp Channel" />
   </a>
 
