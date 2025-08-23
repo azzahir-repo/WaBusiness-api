@@ -87,55 +87,55 @@ Here are some examples of features that have been added:
 <div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
 - **To get info newsletter**
-```ts
+```js/ts
 const metadata = await sock.newsletterMetadata("invite", "xxxxx")
 // or
 const metadata = await sock.newsletterMetadata("jid", "abcd@newsletter")
 console.log(metadata)
 ```
 - **To update the description of a newsletter**
-```ts
+```js/ts
 await sock.newsletterUpdateDescription("abcd@newsletter", "New Description")
 ```
 - **To update the name of a newsletter**
-```ts
+```js/ts
 await sock.newsletterUpdateName("abcd@newsletter", "New Name")
 ```  
 - **To update the profile picture of a newsletter**
-```ts
+```js/ts
 await sock.newsletterUpdatePicture("abcd@newsletter", buffer)
 ```
 - **To remove the profile picture of a newsletter**
-```ts
+```js/ts
 await sock.newsletterRemovePicture("abcd@newsletter")
 ```
 - **To mute notifications for a newsletter**
-```ts
+```js/ts
 await sock.newsletterUnmute("abcd@newsletter")
 ```
 - **To mute notifications for a newsletter**
-```ts
+```js/ts
 await sock.newsletterMute("abcd@newsletter")
 ```
 - **To create a newsletter**
-```ts
+```js/ts
 const metadata = await sock.newsletterCreate("Newsletter Name")
 console.log(metadata)
 ```
 - **To delete a newsletter**
-```ts
+```js/ts
 await sock.newsletterDelete("abcd@newsletter")
 ```
 - **To follow a newsletter**
-```ts
+```js/ts
 await sock.newsletterFollow("abcd@newsletter")
 ```
 - **To unfollow a newsletter**
-```ts
+```js/ts
 await sock.newsletterUnfollow("abcd@newsletter")
 ```
 - **To send reaction**
-```ts
+```js/ts
 // jid, id message & emoticon
 // way to get the ID is to copy the message url from channel
 // Example: [ https://whatsapp.com/channel/xxxxx/175 ]
@@ -152,8 +152,8 @@ await sock.newsletterReactMessage("abcd@newsletter", id, "🥳")
 <summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Examples</summary>
 <div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
-- **To send button with text**
-```ts
+- **To lsend button with text**
+```js/ts
 const buttons = [
   { buttonId: 'id1', buttonText: { displayText: 'Button 1' }, type: 1 },
   { buttonId: 'id2', buttonText: { displayText: 'Button 2' }, type: 1 }
@@ -169,7 +169,7 @@ const buttonMessage = {
 await sock.sendMessage(id, buttonMessage, { quoted: null })
 ```
 - **To send button with image**
-```ts
+```js/ts
 const buttons = [
   { buttonId: 'id1', buttonText: { displayText: 'Button 1' }, type: 1 },
   { buttonId: 'id2', buttonText: { displayText: 'Button 2' }, type: 1 }
@@ -187,7 +187,7 @@ await sock.sendMessage(id, buttonMessage, { quoted: null })
 
 ```
 - **To send button with video**
-```ts
+```js/ts
 const buttons = [
   { buttonId: 'id1', buttonText: { displayText: 'Button 1' }, type: 1 },
   { buttonId: 'id2', buttonText: { displayText: 'Button 2' }, type: 1 }
@@ -205,7 +205,7 @@ await sock.sendMessage(id, buttonMessage, { quoted: null })
 ```
 
 - **To send interactive message**
-```ts
+```js/ts
 const interactiveButtons = [
      {
         name: "quick_reply",
@@ -241,7 +241,7 @@ const interactiveMessage = {
 await sock.sendMessage(id, interactiveMessage, { quoted: null })
 ```
 - **To send interactive message with image**
-```ts
+```js/ts
 const interactiveButtons = [
      {
         name: "quick_reply",
@@ -278,7 +278,7 @@ const interactiveMessage = {
 await sock.sendMessage(id, interactiveMessage, { quoted: null })
 ```
 - **To send interactive message with video**
-```ts
+```js/ts
 const interactiveButtons = [
      {
         name: "quick_reply",
@@ -315,44 +315,32 @@ const interactiveMessage = {
 await sock.sendMessage(id, interactiveMessage, { quoted: null })
 ```
 - **To send list interactive**
-```ts
-const interactiveButtons = [
-  {
-    name: "single_select",
-    buttonParamsJson: JSON.stringify({
-      title: "message",
-      sections: [
-        {
-          title: "title",
-          highlight_label: "label",
-          rows: [
-            {
-              header: "HEADER",
-              title: "TITLE",
-              description: "DESCRIPTION",
-              id: "YOUR ID"
-            },
-            {
-              header: "HEADER",
-              title: "TITLE",
-              description: "DESCRIPTION",
-              id: "YOUR ID"
-            }
-          ]
-        }
-      ]
-    })
-  }
-];
-
-const interactiveMessage = {
-    text: "Hello World!",
-    title: "this is the title",
+```js/ts
+const listMessage = {
+    text: "Silahkan pilih menu di bawah ini 👇",
     footer: "this is the footer",
-    interactiveButtons
-};
+    title: "this is the title",
+    buttonText: "📋 Menu", // tombol utama WA yang klik → buka list
+    sections: [
+      {
+        title: "Menu Utama",
+        rows: [
+          { title: ".menu", description: "Lihat menu utama", rowId: "menu" },
+          { title: ".reject on/off", description: "Aktifkan/Matikan auto reject", rowId: "reject" },
+          { title: ".import", description: "Import knowledge.json", rowId: "import" }
+        ]
+      },
+      {
+        title: "Bantuan",
+        rows: [
+          { title: ".video", description: "Cari video", rowId: "video" },
+          { title: ".brain", description: "AI Chat Brain", rowId: "brain" }
+        ]
+      }
+    ]
+  };
 
-await sock.sendMessage(id, interactiveMessage, { quoted: null });
+  await sock.sendMessage(jid, listMessage);
 ```
 
 </div>
@@ -364,7 +352,7 @@ await sock.sendMessage(id, interactiveMessage, { quoted: null });
 <summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
 <div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
-```ts
+```js/ts
 // Media can be a URL, buffer, or path.
 const media = [
   {
@@ -390,7 +378,7 @@ await sock.sendMessage(id, { album: media, caption: "testing send album" }, { qu
 <summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
 <div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
-```ts
+```js/ts
 // To enable the AI icon for a message, simply add the "ai: true" parameter:
 await sock.sendMessage(id, { text: "Hello World", ai: true });
 ```
@@ -404,7 +392,7 @@ await sock.sendMessage(id, { text: "Hello World", ai: true });
 <summary style="font-weight: bold; cursor: pointer; padding: 8px; border-bottom: 1px solid #eee; margin-bottom: 5px;">Show Example</summary>
 <div style="padding: 10px 15px; background: #f9f9f9; border: 1px solid #eee; border-top: none; border-radius: 0 0 5px 5px;">
 
-```ts
+```js/ts
 if(usePairingCode && !sock.authState.creds.registered) {
     const phoneNumber = await question('Please enter your mobile phone number:\n');
     // Define your custom 8-digit code (alphanumeric)
