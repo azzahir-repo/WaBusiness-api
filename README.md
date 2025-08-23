@@ -316,31 +316,28 @@ await sock.sendMessage(id, interactiveMessage, { quoted: null })
 ```
 - **To send list interactive**
 ```js/ts
-const listMessage = {
-    text: "Silahkan pilih menu di bawah ini 👇",
+const interactiveMessage = {
+    text: "example",
     footer: "this is the footer",
     title: "this is the title",
-    buttonText: "📋 Menu", // tombol utama WA yang klik → buka list
+    buttonText: "example",
     sections: [
       {
-        title: "Menu Utama",
+        title: "title",
         rows: [
-          { title: ".menu", description: "Lihat menu utama", rowId: "menu" },
-          { title: ".reject on/off", description: "Aktifkan/Matikan auto reject", rowId: "reject" },
-          { title: ".import", description: "Import knowledge.json", rowId: "import" }
+          { title: "title", description: "desc", rowId: "rowId" },
         ]
       },
       {
-        title: "Bantuan",
+        title: "title",
         rows: [
-          { title: ".video", description: "Cari video", rowId: "video" },
-          { title: ".brain", description: "AI Chat Brain", rowId: "brain" }
+          { title: "title", description: "desc", rowId: "rowId" },
         ]
       }
     ]
   };
 
-  await sock.sendMessage(jid, listMessage);
+  await sock.sendMessage(jid, interactiveMessage);
 ```
 
 </div>
