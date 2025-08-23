@@ -1,5 +1,5 @@
 {
-  "name": "baileys-mod",
+  "name": "WaBusiness-api",
   "version": "6.8.5",
   "description": "Custom Baileys WhatsApp API",
   "keywords": [
@@ -7,12 +7,12 @@
     "js-whatsapp", "whatsapp-api", "whatsapp-web", "whatsapp-bot",
     "automation", "multi-device"
   ],
-  "homepage": "https://github.com/nstar-y/bail",
+  "homepage": "https://github.com/azzahir-repo/WaBusiness-api",
   "repository": {
-    "url": "git+ssh://git@github.com/nstar-y/bail.git"
+    "url": "git+ssh://git@github.com/azzahir-repo/WaBusiness-api"
   },
   "license": "MIT",
-  "author": "Adhiraj Singh",
+  "author": "Azzahir store",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
